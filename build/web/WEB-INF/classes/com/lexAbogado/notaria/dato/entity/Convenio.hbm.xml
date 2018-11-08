@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-11-2018 0:07:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.lexAbogado.notaria.dato.entity.Convenio" table="CONVENIO" schema="DUOC_USER2" optimistic-lock="version">
+        <id name="idCnvn" type="big_decimal">
+            <column name="ID_CNVN" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombreCnvn" type="string">
+            <column name="NOMBRE_CNVN" length="4000" />
+        </property>
+        <property name="descCnvn" type="big_decimal">
+            <column name="DESC_CNVN" precision="22" scale="0" />
+        </property>
+        <set name="historialTramites" table="HISTORIAL_TRAMITE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_CNVN" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.lexAbogado.notaria.dato.entity.HistorialTramite" />
+        </set>
+    </class>
+</hibernate-mapping>

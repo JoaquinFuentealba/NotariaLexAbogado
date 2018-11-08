@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-11-2018 20:38:17 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.lexAbogado.notaria.dato.entity.EstadoTramite" table="ESTADO_TRAMITE" schema="SYSTEM" optimistic-lock="version">
+        <id name="idStdTrmt" type="big_decimal">
+            <column name="ID_STD_TRMT" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombreStdTrmt" type="string">
+            <column name="NOMBRE_STD_TRMT" length="4000" />
+        </property>
+    </class>
+</hibernate-mapping>

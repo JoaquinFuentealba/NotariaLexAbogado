@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-11-2018 20:38:17 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.lexAbogado.notaria.dato.entity.HistorialTramite" table="HISTORIAL_TRAMITE" schema="SYSTEM" optimistic-lock="version">
+        <id name="idHstrltrmt" type="big_decimal">
+            <column name="ID_HSTRLTRMT" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cliente" class="com.lexAbogado.notaria.dato.entity.Cliente" fetch="select">
+            <column name="ID_CLNT" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="convenio" class="com.lexAbogado.notaria.dato.entity.Convenio" fetch="select">
+            <column name="ID_CNVN" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tramite" class="com.lexAbogado.notaria.dato.entity.Tramite" fetch="select">
+            <column name="ID_TRMT" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="idStdTrmt" type="big_decimal">
+            <column name="ID_STD_TRMT" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

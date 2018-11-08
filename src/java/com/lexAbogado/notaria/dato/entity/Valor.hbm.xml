@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-11-2018 0:07:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.lexAbogado.notaria.dato.entity.Valor" table="VALOR" schema="DUOC_USER2" optimistic-lock="version">
+        <id name="idVlr" type="big_decimal">
+            <column name="ID_VLR" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="idTrmt" type="big_decimal">
+            <column name="ID_TRMT" precision="22" scale="0" />
+        </property>
+        <property name="valorVlr" type="big_decimal">
+            <column name="VALOR_VLR" precision="22" scale="0" />
+        </property>
+        <set name="tramites" table="TRAMITE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="VALOR_ID_VLR" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.lexAbogado.notaria.dato.entity.Tramite" />
+        </set>
+    </class>
+</hibernate-mapping>
