@@ -7,7 +7,7 @@ package com.lexAbogado.notaria.webService;
 
 import com.lexAbogado.notaria.bussines.convert.DaoToJpa;
 import com.lexAbogado.notaria.dato.controllers.ClientNotariaControllers;
-import com.lexAbogado.notaria.dato.entity.Cliente;
+import com.lexAbogado.notaria.dato.entity.NotariaCliente;
 import com.lexAbogado.notaria.domain.ClienteNotaria;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -61,8 +61,8 @@ public class NotariaClient {
     @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
     @Consumes(javax.ws.rs.core.MediaType.APPLICATION_JSON)
     @Path("newClient")
-    public Cliente newClient(ClienteNotaria newClient) {
-        Cliente  result = new Cliente();
+    public NotariaCliente newClient(ClienteNotaria newClient) {
+        NotariaCliente  result = new NotariaCliente();
         try{
             result = DaoToJpa.convertClienteNotariaToCliente(newClient);
             ClientNotariaControllers.insertarNewClient(result);
@@ -77,8 +77,8 @@ public class NotariaClient {
     @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
     @Consumes(javax.ws.rs.core.MediaType.APPLICATION_JSON)
     @Path("obtenerClientByRut")
-    public Cliente obtenerClientByRut(ClienteNotaria newClient) {
-        Cliente  result = new Cliente();
+    public NotariaCliente obtenerClientByRut(ClienteNotaria newClient) {
+        NotariaCliente  result = new NotariaCliente();
         try{
             result = DaoToJpa.convertClienteNotariaToCliente(newClient);
             ClientNotariaControllers.searchClientByRut(result);

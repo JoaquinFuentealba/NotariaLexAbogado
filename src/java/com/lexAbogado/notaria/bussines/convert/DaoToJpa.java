@@ -5,9 +5,9 @@
  */
 package com.lexAbogado.notaria.bussines.convert;
 
-import com.lexAbogado.notaria.dato.entity.Cliente;
+import com.lexAbogado.notaria.dato.entity.NotariaCliente;
 import com.lexAbogado.notaria.domain.TramiteNotaria;
-import com.lexAbogado.notaria.dato.entity.HistorialTramite;
+import com.lexAbogado.notaria.dato.entity.NotariaHistorialTramite;
 import com.lexAbogado.notaria.domain.ClienteNotaria;
 import java.math.BigDecimal;
 
@@ -17,8 +17,8 @@ import java.math.BigDecimal;
  */
 public class DaoToJpa {
     
-    public static Cliente convertClienteNotariaToCliente(ClienteNotaria cln){
-        Cliente result = new Cliente();
+    public static NotariaCliente convertClienteNotariaToCliente(ClienteNotaria cln){
+        NotariaCliente result = new NotariaCliente();
         result.setRutClnt(new BigDecimal(cln.getRut()!=null?cln.getRut():"0"));
         result.setApellido(cln.getApellido() != null?cln.getApellido():"");
         result.setNombre(cln.getNombre()!= null?cln.getNombre():"");

@@ -5,7 +5,7 @@
  */
 package com.lexAbogado.notaria.bussines.convert;
 
-import com.lexAbogado.notaria.dato.entity.Tramite;
+import com.lexAbogado.notaria.dato.entity.NotariaTramite;
 import com.lexAbogado.notaria.domain.TramiteNotaria;
 import java.math.BigDecimal;
 
@@ -15,7 +15,7 @@ import java.math.BigDecimal;
  */
 public class JpaToDaoUtil {
     
-    public static TramiteNotaria convertTramiteToTramiteNotaria(Tramite tramite){
+    public static TramiteNotaria convertTramiteToTramiteNotaria(NotariaTramite tramite){
         TramiteNotaria result = new TramiteNotaria();
         result.setIdTramite(String.valueOf(tramite.getIdTrmt()));
         result.setNombreTramite(tramite.getNombreTrmt());

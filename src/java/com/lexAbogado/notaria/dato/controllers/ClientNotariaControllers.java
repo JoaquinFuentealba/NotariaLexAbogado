@@ -6,7 +6,7 @@
 package com.lexAbogado.notaria.dato.controllers;
 
 import com.lexAbogado.notaria.dato.config.NewHibernateUtil;
-import com.lexAbogado.notaria.dato.entity.Cliente;
+import com.lexAbogado.notaria.dato.entity.NotariaCliente;
 import java.sql.SQLException;
 import net.sf.ehcache.hibernate.HibernateUtil;
 import org.hibernate.HibernateException;
@@ -20,9 +20,9 @@ import org.hibernate.Transaction;
  * @author Joaquin
  */
 public class ClientNotariaControllers {
-    public static void insertarNewClient(Cliente cliente){
+    public static void insertarNewClient(NotariaCliente cliente){
         try{
-            Cliente newCliente = new Cliente ();
+            NotariaCliente newCliente = new NotariaCliente ();
             SessionFactory sessionFactory = NewHibernateUtil.getSessionFactory();
             Session session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();
@@ -35,8 +35,8 @@ public class ClientNotariaControllers {
             System.out.println("Error al insertar Cliente: "+e);
         }
     }
-     public static Cliente searchClientByRut(Cliente cliente){
-        Cliente newCliente = new Cliente ();
+     public static NotariaCliente searchClientByRut(NotariaCliente cliente){
+        NotariaCliente newCliente = new NotariaCliente ();
         //try{
             SessionFactory sessionFactory = NewHibernateUtil.getSessionFactory();
             Session session = sessionFactory.openSession();
@@ -44,7 +44,7 @@ public class ClientNotariaControllers {
             Query query = session.createQuery("FROM Cliente WHERE  RUT_CLNT = ? AND DIGITO_RUT_CLNT =?");
             query.setBigDecimal(0, cliente.getRutClnt());
             query.setBigDecimal(1, cliente.getDigitoRutClnt());
-            newCliente = (Cliente) query.uniqueResult();
+            newCliente = (NotariaCliente) query.uniqueResult();
             transaction.commit();
             session.disconnect();
             session.close();

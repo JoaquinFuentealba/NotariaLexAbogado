@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-11-2018 9:00:35 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.lexAbogado.notaria.dato.entity.NotariaHistorialTramite" table="NOTARIA_HISTORIAL_TRAMITE" schema="DUOC_USER2" optimistic-lock="version">
+        <id name="idHstrltrmt" type="big_decimal">
+            <column name="ID_HSTRLTRMT" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="notariaCliente" class="com.lexAbogado.notaria.dato.entity.NotariaCliente" fetch="select">
+            <column name="ID_CLNT" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="notariaConvenio" class="com.lexAbogado.notaria.dato.entity.NotariaConvenio" fetch="select">
+            <column name="ID_CNVN" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="notariaEstadoTramite" class="com.lexAbogado.notaria.dato.entity.NotariaEstadoTramite" fetch="select">
+            <column name="ID_STD_TRMT" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="notariaTramite" class="com.lexAbogado.notaria.dato.entity.NotariaTramite" fetch="select">
+            <column name="ID_TRMT" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="fchCrcnHstrltrmt" type="date">
+            <column name="FCH_CRCN_HSTRLTRMT" length="7" />
+        </property>
+        <property name="fchJcnHstrltrmt" type="date">
+            <column name="FCH_JCN_HSTRLTRMT" length="7" />
+        </property>
+        <property name="fchCrrHstrltrmt" type="date">
+            <column name="FCH_CRR_HSTRLTRMT" length="7" />
+        </property>
+    </class>
+</hibernate-mapping>

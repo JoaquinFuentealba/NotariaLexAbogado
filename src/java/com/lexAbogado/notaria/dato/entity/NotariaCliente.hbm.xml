@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10-11-2018 9:00:35 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.lexAbogado.notaria.dato.entity.NotariaCliente" table="NOTARIA_CLIENTE" schema="DUOC_USER2" optimistic-lock="version">
+        <id name="idClnt" type="big_decimal">
+            <column name="ID_CLNT" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="rutClnt" type="big_decimal">
+            <column name="RUT_CLNT" precision="22" scale="0" />
+        </property>
+        <property name="digitoRutClnt" type="big_decimal">
+            <column name="DIGITO_RUT_CLNT" precision="22" scale="0" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="4000" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="APELLIDO" length="4000" />
+        </property>
+        <set name="notariaHistorialTramites" table="NOTARIA_HISTORIAL_TRAMITE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_CLNT" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.lexAbogado.notaria.dato.entity.NotariaHistorialTramite" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -46,12 +46,11 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:oracle:thin:@192.243.109.159:1521:xe</property>
     <property name="hibernate.connection.username">DUOC_USER2</property>
     <property name="hibernate.connection.password">portafolio2018</property>
-    <mapping resource="com/lexAbogado/notaria/dato/entity/Valor.hbm.xml"/>
-    <mapping resource="com/lexAbogado/notaria/dato/entity/Convenio.hbm.xml"/>
-    <mapping resource="com/lexAbogado/notaria/dato/entity/EstadoTramite.hbm.xml"/>
-    <mapping resource="com/lexAbogado/notaria/dato/entity/Cliente.hbm.xml"/>
-    <mapping resource="com/lexAbogado/notaria/dato/entity/HistorialTramite.hbm.xml"/>
-    <mapping resource="com/lexAbogado/notaria/dato/entity/Tramite.hbm.xml"/>
-    <mapping resource="com/lexAbogado/notaria/dato/entity/Categoria.hbm.xml"/>
+    <mapping resource="com/lexAbogado/notaria/dato/entity/NotariaCliente.hbm.xml"/>
+    <mapping resource="com/lexAbogado/notaria/dato/entity/NotariaTramite.hbm.xml"/>
+    <mapping resource="com/lexAbogado/notaria/dato/entity/NotariaConvenio.hbm.xml"/>
+    <mapping resource="com/lexAbogado/notaria/dato/entity/NotariaEstadoTramite.hbm.xml"/>
+    <mapping resource="com/lexAbogado/notaria/dato/entity/NotariaHistorialTramite.hbm.xml"/>
+    <mapping resource="com/lexAbogado/notaria/dato/entity/NotariaValor.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
