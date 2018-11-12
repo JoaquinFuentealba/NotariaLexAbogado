@@ -13,6 +13,7 @@ public abstract class NotariaTramite_ {
 	public static volatile SingularAttribute<NotariaTramite, String> nombreTrmt;
 	public static volatile SingularAttribute<NotariaTramite, BigDecimal> idTrmt;
 	public static volatile SetAttribute<NotariaTramite, ?> notariaHistorialTramites;
+	public static volatile SingularAttribute<NotariaTramite, NotariaCategoria> notariaCategoria;
 	public static volatile SingularAttribute<NotariaTramite, NotariaValor> notariaValor;
 
 }

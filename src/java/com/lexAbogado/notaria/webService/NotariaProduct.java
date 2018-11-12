@@ -11,6 +11,7 @@ import com.lexAbogado.notaria.dato.controllers.ClientNotariaControllers;
 import com.lexAbogado.notaria.dato.controllers.ProductNotariaControllers;
 import com.lexAbogado.notaria.dato.entity.NotariaCliente;
 import com.lexAbogado.notaria.dato.entity.NotariaTramite;
+import com.lexAbogado.notaria.domain.ClientTramiteNotaria;
 import com.lexAbogado.notaria.domain.ClienteNotaria;
 import com.lexAbogado.notaria.domain.TramiteNotaria;
 import java.sql.SQLException;
@@ -109,13 +110,23 @@ public class NotariaProduct {
         //throw new UnsupportedOperationException();
     }
 
-    /**
-     * PUT method for updating or creating an instance of NotariaProduct
-     * @param content representation for the resource
-     */
-    @PUT
+    @POST
+    @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
     @Consumes(javax.ws.rs.core.MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
+    @Path("RegistrarTremite")
+    public ClientTramiteNotaria setRegistrarTramite(ClientTramiteNotaria clienteNotaria){
+        ClientTramiteNotaria result = new ClientTramiteNotaria();
+        try{
+            
+            return result;
+        }
+        catch(Exception e){
+            System.out.printf("Error en setRegistrarTramite : " +e.toString());
+            result.setCodigo(-3);
+            result.setMensaje("Error: " + e);
+            return  result;
+        }
+        
     }
     
 

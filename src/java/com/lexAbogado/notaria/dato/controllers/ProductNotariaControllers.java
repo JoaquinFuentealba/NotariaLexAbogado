@@ -35,7 +35,7 @@ public class ProductNotariaControllers {
             Transaction transaction = session.beginTransaction();
 
 
-            Query query = session.createSQLQuery("select Tramite.ID_TRMT,Tramite.NOMBRE_TRMT,VALOR.ID_VLR,VALOR.VALOR_VLR,CATEGORIA.NOM_CATEGORIA   FROM Tramite   INNER JOIN Valor ON Valor.ID_VLR = Tramite.VALOR_ID_VLR  INNER JOIN CATEGORIA ON Tramite.CATEGORIA_ID_CATEGORIA = CATEGORIA.ID_CATEGORIA  ORDER BY CATEGORIA.NOM_CATEGORIA ASC");
+            Query query = session.createSQLQuery("select T.ID_TRMT,T.NOMBRE_TRMT,V.ID_VLR,V.VALOR_VLR,C.NOM_CATEGORIA FROM NOTARIA_TRAMITE   T INNER JOIN NOTARIA_VALOR V ON V.ID_VLR = T.VALOR_ID_VLR INNER JOIN NOTARIA_CATEGORIA C ON T.ID_CTGR = C.ID_CATEGORIA ORDER BY C.NOM_CATEGORIA ASC");
             List<Object> result =  query.list(); 
             transaction.commit();
 

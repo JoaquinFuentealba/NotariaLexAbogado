@@ -47,6 +47,7 @@ Contributor(s):
     <property name="hibernate.connection.username">DUOC_USER2</property>
     <property name="hibernate.connection.password">portafolio2018</property>
     <mapping resource="com/lexAbogado/notaria/dato/entity/NotariaCliente.hbm.xml"/>
+    <mapping resource="com/lexAbogado/notaria/dato/entity/NotariaCategoria.hbm.xml"/>
     <mapping resource="com/lexAbogado/notaria/dato/entity/NotariaTramite.hbm.xml"/>
     <mapping resource="com/lexAbogado/notaria/dato/entity/NotariaConvenio.hbm.xml"/>
     <mapping resource="com/lexAbogado/notaria/dato/entity/NotariaEstadoTramite.hbm.xml"/>

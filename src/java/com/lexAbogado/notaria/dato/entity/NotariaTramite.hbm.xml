@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 10-11-2018 9:00:35 by Hibernate Tools 4.3.1 -->
+<!-- Generated 10-11-2018 16:57:46 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.lexAbogado.notaria.dato.entity.NotariaTramite" table="NOTARIA_TRAMITE" schema="DUOC_USER2" optimistic-lock="version">
         <id name="idTrmt" type="big_decimal">
             <column name="ID_TRMT" precision="22" scale="0" />
             <generator class="assigned" />
         </id>
+        <many-to-one name="notariaCategoria" class="com.lexAbogado.notaria.dato.entity.NotariaCategoria" fetch="select">
+            <column name="ID_CTGR" precision="22" scale="0" />
+        </many-to-one>
         <many-to-one name="notariaValor" class="com.lexAbogado.notaria.dato.entity.NotariaValor" fetch="select">
             <column name="VALOR_ID_VLR" precision="22" scale="0" not-null="true" />
         </many-to-one>

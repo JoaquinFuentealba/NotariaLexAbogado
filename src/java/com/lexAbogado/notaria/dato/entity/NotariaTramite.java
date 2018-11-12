@@ -1,5 +1,5 @@
 package com.lexAbogado.notaria.dato.entity;
-// Generated 10-11-2018 9:00:34 by Hibernate Tools 4.3.1
+// Generated 10-11-2018 16:57:46 by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
@@ -25,6 +25,7 @@ public class NotariaTramite  implements java.io.Serializable {
 
 
      private BigDecimal idTrmt;
+     private NotariaCategoria notariaCategoria;
      private NotariaValor notariaValor;
      private String nombreTrmt;
      private Set notariaHistorialTramites = new HashSet(0);
@@ -37,8 +38,9 @@ public class NotariaTramite  implements java.io.Serializable {
         this.idTrmt = idTrmt;
         this.notariaValor = notariaValor;
     }
-    public NotariaTramite(BigDecimal idTrmt, NotariaValor notariaValor, String nombreTrmt, Set notariaHistorialTramites) {
+    public NotariaTramite(BigDecimal idTrmt, NotariaCategoria notariaCategoria, NotariaValor notariaValor, String nombreTrmt, Set notariaHistorialTramites) {
        this.idTrmt = idTrmt;
+       this.notariaCategoria = notariaCategoria;
        this.notariaValor = notariaValor;
        this.nombreTrmt = nombreTrmt;
        this.notariaHistorialTramites = notariaHistorialTramites;
@@ -54,6 +56,16 @@ public class NotariaTramite  implements java.io.Serializable {
     
     public void setIdTrmt(BigDecimal idTrmt) {
         this.idTrmt = idTrmt;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="ID_CTGR")
+    public NotariaCategoria getNotariaCategoria() {
+        return this.notariaCategoria;
+    }
+    
+    public void setNotariaCategoria(NotariaCategoria notariaCategoria) {
+        this.notariaCategoria = notariaCategoria;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)

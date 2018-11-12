@@ -1,5 +1,5 @@
 package com.lexAbogado.notaria.dato.entity;
-// Generated 10-11-2018 9:00:34 by Hibernate Tools 4.3.1
+// Generated 10-11-2018 16:57:46 by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;

@@ -41,10 +41,11 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection/>
-  <table-filter match-name="NOTARIA_HISTORIAL_TRAMITE"/>
-  <table-filter match-name="NOTARIA_CONVENIO"/>
-  <table-filter match-name="NOTARIA_CLIENTE"/>
-  <table-filter match-name="NOTARIA_ESTADO_TRAMITE"/>
   <table-filter match-name="NOTARIA_VALOR"/>
+  <table-filter match-name="NOTARIA_CONVENIO"/>
+  <table-filter match-name="NOTARIA_CATEGORIA"/>
+  <table-filter match-name="NOTARIA_ESTADO_TRAMITE"/>
   <table-filter match-name="NOTARIA_TRAMITE"/>
+  <table-filter match-name="NOTARIA_CLIENTE"/>
+  <table-filter match-name="NOTARIA_HISTORIAL_TRAMITE"/>
 </hibernate-reverse-engineering>

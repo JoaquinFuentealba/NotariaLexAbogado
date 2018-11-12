@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 10-11-2018 9:00:35 by Hibernate Tools 4.3.1 -->
+<!-- Generated 10-11-2018 16:57:46 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.lexAbogado.notaria.dato.entity.NotariaCliente" table="NOTARIA_CLIENTE" schema="DUOC_USER2" optimistic-lock="version">
         <id name="idClnt" type="big_decimal">
             <column name="ID_CLNT" precision="22" scale="0" />
-            <generator class="assigned" />
+            <generator class="increment" />
         </id>
         <property name="rutClnt" type="big_decimal">
             <column name="RUT_CLNT" precision="22" scale="0" />
