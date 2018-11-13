@@ -21,37 +21,37 @@ import org.hibernate.Transaction;
  */
 public class ClientNotariaControllers {
     public static void insertarNewClient(NotariaCliente cliente){
-        try{
+//       try{
             NotariaCliente newCliente = new NotariaCliente ();
-            SessionFactory sessionFactory = NewHibernateUtil.getSessionFactory();
-            Session session = sessionFactory.openSession();
+            Session session = NewHibernateUtil.getSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
             session.save(cliente);
             transaction.commit();
             session.close();
-            sessionFactory.close();
             
-        }catch(HibernateException e){
-            System.out.println("Error al insertar Cliente: "+e);
-        }
+            
+//        }catch(HibernateException e){
+//            System.out.println("Error al insertar Cliente: "+e);
+//        }
     }
      public static NotariaCliente searchClientByRut(NotariaCliente cliente){
         NotariaCliente newCliente = new NotariaCliente ();
         //try{
-            SessionFactory sessionFactory = NewHibernateUtil.getSessionFactory();
-            Session session = sessionFactory.openSession();
+            //SessionFactory sessionFactory = 
+            Session session = NewHibernateUtil.getSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
-            Query query = session.createQuery("FROM Cliente WHERE  RUT_CLNT = ? AND DIGITO_RUT_CLNT =?");
+            Query query = session.createQuery("FROM NotariaCliente WHERE  RUT_CLNT = ? AND DIGITO_RUT_CLNT =?");
             query.setBigDecimal(0, cliente.getRutClnt());
             query.setBigDecimal(1, cliente.getDigitoRutClnt());
             newCliente = (NotariaCliente) query.uniqueResult();
             transaction.commit();
-            session.disconnect();
+            //session.disconnect();
             session.close();
-            sessionFactory.close();
+            //sessionFactory.close();
         //}catch(HibernateException e){
-          //  System.out.println("Error al buscar Cliente: "+e);
-        //}
+           //System.out.println("Error al buscar Cliente: "+e);
+           //session.close();
+       //}
         return newCliente;
     }
             

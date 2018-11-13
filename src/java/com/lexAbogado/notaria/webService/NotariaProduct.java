@@ -7,6 +7,7 @@ package com.lexAbogado.notaria.webService;
 
 import com.lexAbogado.notaria.bussines.convert.DaoToJpa;
 import com.lexAbogado.notaria.bussines.convert.JpaToDaoUtil;
+import com.lexAbogado.notaria.bussines.registrar.Tramite;
 import com.lexAbogado.notaria.dato.controllers.ClientNotariaControllers;
 import com.lexAbogado.notaria.dato.controllers.ProductNotariaControllers;
 import com.lexAbogado.notaria.dato.entity.NotariaCliente;
@@ -117,15 +118,28 @@ public class NotariaProduct {
     public ClientTramiteNotaria setRegistrarTramite(ClientTramiteNotaria clienteNotaria){
         ClientTramiteNotaria result = new ClientTramiteNotaria();
         try{
-            
+            clienteNotaria = Tramite.registrarTramite(clienteNotaria);
             return result;
         }
-        catch(Exception e){
-            System.out.printf("Error en setRegistrarTramite : " +e.toString());
-            result.setCodigo(-3);
+        catch(NullPointerException e){
+            System.out.println("Notaria no encontrada: "+e.toString());
+            result.setCodigo(-1);
+            result.setMensaje("Error" + e);
+            return  result;
+        }
+        catch(HibernateException e){
+             System.out.println("Hibernet error:" +e.toString());
+            result.setCodigo(-2);
             result.setMensaje("Error: " + e);
             return  result;
         }
+        catch(Exception e){
+            System.out.println("Error desconocido: "+e.toString());
+            result.setCodigo(-3);
+            result.setMensaje("Error" + e);
+            return  result;
+        }
+        //throw new UnsupportedOperationException()
         
     }
     

@@ -6,7 +6,7 @@
     <class name="com.lexAbogado.notaria.dato.entity.NotariaHistorialTramite" table="NOTARIA_HISTORIAL_TRAMITE" schema="DUOC_USER2" optimistic-lock="version">
         <id name="idHstrltrmt" type="big_decimal">
             <column name="ID_HSTRLTRMT" precision="22" scale="0" />
-            <generator class="assigned" />
+            <generator class="increment" />
         </id>
         <many-to-one name="notariaCliente" class="com.lexAbogado.notaria.dato.entity.NotariaCliente" fetch="select">
             <column name="ID_CLNT" precision="22" scale="0" not-null="true" />

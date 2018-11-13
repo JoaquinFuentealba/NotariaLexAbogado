@@ -59,8 +59,8 @@ public class ProductNotariaControllers {
        
         Object result = new TramiteNotaria();
          
-        SessionFactory sessionFactory = NewHibernateUtil.getSessionFactory();
-        Session session = sessionFactory.openSession();
+       
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         Query query = session.createSQLQuery("select Tramite.ID_TRMT,Tramite.NOMBRE_TRMT,VALOR.ID_VLR,VALOR.VALOR_VLR FROM Tramite INNER JOIN Valor ON VALOR.ID_TRMT = Tramite.ID_TRMT where Tramite.ID_TRMT =?");
         
@@ -77,7 +77,6 @@ public class ProductNotariaControllers {
         
         session.disconnect();
         session.close();
-        sessionFactory.close();
         NewHibernateUtil.getSessionFactory().close();
 
         //session.close();

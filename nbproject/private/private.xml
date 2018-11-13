@@ -3,18 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Joaquin/Google%20Drive/DUOC/2018-2/Portafolio/Programas/wsNotariaLex/NotariaLexAbogado/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/Joaquin/Google%20Drive/DUOC/2018-2/Portafolio/Programas/wsNotariaLex/NotariaLexAbogado/src/java/com/lexAbogado/notaria/domain/ClientTramiteNotaria.java</file>
-            <file>file:/C:/Users/Joaquin/Google%20Drive/DUOC/2018-2/Portafolio/Programas/wsNotariaLex/NotariaLexAbogado/src/java/com/lexAbogado/notaria/dato/entity/NotariaCategoria.java</file>
+            <file>file:/C:/Users/Joaquin/Google%20Drive/DUOC/2018-2/Portafolio/Programas/wsNotariaLex/NotariaLexAbogado/src/java/com/lexAbogado/notaria/dato/controllers/TramiteControllers.java</file>
             <file>file:/C:/Users/Joaquin/Google%20Drive/DUOC/2018-2/Portafolio/Programas/wsNotariaLex/NotariaLexAbogado/src/java/com/lexAbogado/notaria/bussines/registrar/Tramite.java</file>
             <file>file:/C:/Users/Joaquin/Google%20Drive/DUOC/2018-2/Portafolio/Programas/wsNotariaLex/NotariaLexAbogado/src/java/com/lexAbogado/notaria/dato/controllers/ClientNotariaControllers.java</file>
             <file>file:/C:/Users/Joaquin/Google%20Drive/DUOC/2018-2/Portafolio/Programas/wsNotariaLex/NotariaLexAbogado/src/java/com/lexAbogado/notaria/webService/NotariaClient.java</file>
             <file>file:/C:/Users/Joaquin/Google%20Drive/DUOC/2018-2/Portafolio/Programas/wsNotariaLex/NotariaLexAbogado/src/java/com/lexAbogado/notaria/webService/NotariaProduct.java</file>
-            <file>file:/C:/Users/Joaquin/Google%20Drive/DUOC/2018-2/Portafolio/Programas/wsNotariaLex/NotariaLexAbogado/src/java/hibernate.reveng.xml</file>
+            <file>file:/C:/Users/Joaquin/Google%20Drive/DUOC/2018-2/Portafolio/Programas/wsNotariaLex/NotariaLexAbogado/src/java/com/lexAbogado/notaria/dato/controllers/HistorialTramiteControllers.java</file>
             <file>file:/C:/Users/Joaquin/Google%20Drive/DUOC/2018-2/Portafolio/Programas/wsNotariaLex/NotariaLexAbogado/src/java/com/lexAbogado/notaria/dato/controllers/ProductNotariaControllers.java</file>
             <file>file:/C:/Users/Joaquin/Google%20Drive/DUOC/2018-2/Portafolio/Programas/wsNotariaLex/NotariaLexAbogado/src/java/com/lexAbogado/notaria/dato/entity/NotariaCliente.java</file>
-            <file>file:/C:/Users/Joaquin/Google%20Drive/DUOC/2018-2/Portafolio/Programas/wsNotariaLex/NotariaLexAbogado/src/java/com/lexAbogado/notaria/domain/TramiteNotaria.java</file>
-            <file>file:/C:/Users/Joaquin/Google%20Drive/DUOC/2018-2/Portafolio/Programas/wsNotariaLex/NotariaLexAbogado/src/java/com/lexAbogado/notaria/dato/entity/NotariaCliente.hbm.xml</file>
-            <file>file:/C:/Users/Joaquin/Google%20Drive/DUOC/2018-2/Portafolio/Programas/wsNotariaLex/NotariaLexAbogado/src/java/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/Joaquin/Google%20Drive/DUOC/2018-2/Portafolio/Programas/wsNotariaLex/NotariaLexAbogado/src/java/com/lexAbogado/notaria/dato/config/NewHibernateUtil.java</file>
         </group>
     </open-files>
 </project-private>
