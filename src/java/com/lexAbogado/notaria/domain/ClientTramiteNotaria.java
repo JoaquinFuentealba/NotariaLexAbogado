@@ -18,6 +18,8 @@ public class ClientTramiteNotaria extends Control{
     private String nombreTramite;
     private String estado;
     private String precio;
+    private String precioFinal;
+    private String idFolio;
 
     public String getRutCLiente() {
         return rutCLiente;
@@ -81,6 +83,22 @@ public class ClientTramiteNotaria extends Control{
 
     public void setPrecio(String precio) {
         this.precio = precio;
+    }
+
+    public String getPrecioFinal() {
+        return precioFinal;
+    }
+
+    public void setPrecioFinal(String precioFinal) {
+        this.precioFinal = precioFinal;
+    }
+
+    public String getIdFolio() {
+        return idFolio;
+    }
+
+    public void setIdFolio(String idFolio) {
+        this.idFolio = idFolio;
     }
     
 }

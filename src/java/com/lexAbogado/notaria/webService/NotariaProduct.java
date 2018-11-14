@@ -118,7 +118,8 @@ public class NotariaProduct {
     public ClientTramiteNotaria setRegistrarTramite(ClientTramiteNotaria clienteNotaria){
         ClientTramiteNotaria result = new ClientTramiteNotaria();
         try{
-            clienteNotaria = Tramite.registrarTramite(clienteNotaria);
+            result = new ClientTramiteNotaria();
+            result = Tramite.registrarTramite(clienteNotaria);
             return result;
         }
         catch(NullPointerException e){

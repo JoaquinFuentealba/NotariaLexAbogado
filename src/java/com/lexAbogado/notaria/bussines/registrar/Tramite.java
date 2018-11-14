@@ -5,6 +5,7 @@
  */
 package com.lexAbogado.notaria.bussines.registrar;
 
+import com.lexAbogado.notaria.bussines.convert.MathUtils;
 import com.lexAbogado.notaria.dato.controllers.ClientNotariaControllers;
 import com.lexAbogado.notaria.dato.controllers.ConvenioControllers;
 import com.lexAbogado.notaria.dato.controllers.EstadoControllers;
@@ -32,9 +33,17 @@ public class Tramite {
         notariaCliente.setRutClnt(new BigDecimal(clienteTramiteNotaria.getRutCLiente()));
         notariaCliente.setDigitoRutClnt(new BigDecimal(clienteTramiteNotaria.getDigVerficador()));
         notariaCliente = ClientNotariaControllers.searchClientByRut(notariaCliente);
+        NotariaHistorialTramite historialTramite = new NotariaHistorialTramite();
         //si el usuario Existe se cre el historial
         if(notariaCliente != null){
-            NotariaHistorialTramite historialTramite = new NotariaHistorialTramite();
+            Object obj = HistorialTramiteControllers.obtenerTramiteAbiertoByRutCliente(notariaCliente.getRutClnt().intValue(),Integer.parseInt(clienteTramiteNotaria.getIdTramite()));
+            if( obj != null){
+                ClientTramiteNotaria error = new ClientTramiteNotaria();
+                error.setCodigo(-4);
+                error.setMensaje("Cliente con un tramite pendiente");
+                return error;
+            }
+            historialTramite = new NotariaHistorialTramite();
             historialTramite.setNotariaCliente(notariaCliente);
             historialTramite.setNotariaConvenio(ConvenioControllers.obtenerConvenio(new NotariaConvenio(BigDecimal.ONE)));
             historialTramite.setNotariaEstadoTramite(EstadoControllers.obtenerEstado(new NotariaEstadoTramite(BigDecimal.ONE)));
@@ -44,7 +53,7 @@ public class Tramite {
         }
         else{
             notariaCliente = new NotariaCliente();
-            NotariaHistorialTramite historialTramite = new NotariaHistorialTramite();
+            historialTramite = new NotariaHistorialTramite();
             notariaCliente.setNombre(clienteTramiteNotaria.getNombre());
             notariaCliente.setApellido(clienteTramiteNotaria.getApellido());
             notariaCliente.setRutClnt(new BigDecimal(clienteTramiteNotaria.getRutCLiente()));
@@ -58,7 +67,8 @@ public class Tramite {
             historialTramite.setFchCrcnHstrltrmt(new Date());
             HistorialTramiteControllers.registrarHitorialTramiteConvenioLex(historialTramite);
         }
-        
+        clienteTramiteNotaria.setPrecioFinal(String.valueOf(MathUtils.sumarPorcentaje(historialTramite.getNotariaTramite().getNotariaValor().getValorVlr().intValue(),historialTramite.getNotariaConvenio().getDescCnvn().intValue())));
+        clienteTramiteNotaria.setIdFolio(String.valueOf(historialTramite.getIdHstrltrmt()));
         clienteTramiteNotaria.setCodigo(0);
         return clienteTramiteNotaria;
     }
