@@ -18,6 +18,7 @@ import com.lexAbogado.notaria.domain.TramiteNotaria;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.jws.WebMethod;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -54,7 +55,8 @@ public class NotariaProduct {
      */
     @POST
     @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
-    @Path("getProductNotaria")
+    //@Path("getProductNotaria")
+    @WebMethod(operationName = "getProductNotaria")
     @Consumes(javax.ws.rs.core.MediaType.APPLICATION_JSON)
     public TramiteNotaria getProductNotaria(String id) {
         System.out.println("1");
