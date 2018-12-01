@@ -5,30 +5,24 @@
  */
 package com.lexAbogado.notaria.webService;
 
-import com.lexAbogado.notaria.bussines.convert.DaoToJpa;
-import com.lexAbogado.notaria.bussines.convert.JpaToDaoUtil;
 import com.lexAbogado.notaria.bussines.registrar.Tramite;
-import com.lexAbogado.notaria.dato.controllers.ClientNotariaControllers;
 import com.lexAbogado.notaria.dato.controllers.ProductNotariaControllers;
-import com.lexAbogado.notaria.dato.entity.NotariaCliente;
-import com.lexAbogado.notaria.dato.entity.NotariaTramite;
 import com.lexAbogado.notaria.domain.ClientTramiteNotaria;
-import com.lexAbogado.notaria.domain.ClienteNotaria;
 import com.lexAbogado.notaria.domain.TramiteNotaria;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.jws.WebMethod;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PUT;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import org.hibernate.HibernateException;
+import org.glassfish.jersey.*;
+import weblogic.jndi.annotation.CrossPartitionAware;
+
 
 
 /**
@@ -36,12 +30,11 @@ import org.hibernate.HibernateException;
  *
  * @author Joaquin
  */
-@Path("notariaProduct")
+@Path("/notariaProduct/")
+
 public class NotariaProduct {
 
-    @Context
-    private UriInfo context;
-
+    
     /**
      * Creates a new instance of NotariaProduct
      */
@@ -54,10 +47,11 @@ public class NotariaProduct {
      * @return an instance of java.lang.String
      */
     @POST
-    @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     //@Path("getProductNotaria")
     @WebMethod(operationName = "getProductNotaria")
     @Consumes(javax.ws.rs.core.MediaType.APPLICATION_JSON)
+    
     public TramiteNotaria getProductNotaria(String id) {
         System.out.println("1");
         //TODO return proper representation object
@@ -71,19 +65,30 @@ public class NotariaProduct {
     }
     
     @GET
-    @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
-    @Path("getAllTramiteNotaria")
-    public List<TramiteNotaria> getAllTramiteNotaria() {
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/getAllTramiteNotaria/")
+    public Response getAllTramiteNotaria() {
+        try{
         List<TramiteNotaria>  result = new ArrayList<TramiteNotaria>();
-
         result=ProductNotariaControllers.getAllProductNotaria();
-        return result;
+        return Response.ok()
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+                .header("Access-Control-Allow-Credentials", "true")
+                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+                .header("Access-Control-Max-Age", "1209600")
+                
+                .entity(result).build();
         //throw new UnsupportedOperationException();
+        }catch(Exception e ){
+            System.out.println("com.lexAbogado.notaria.webService.NotariaProduct.getAllTramiteNotaria()"+ e);
+            return null;
+        }
     }
     
     @POST
-    @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
-    @Consumes(javax.ws.rs.core.MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     @Path("getIdProductNotaria")
     public TramiteNotaria getIdProductNotaria(String id) {
         TramiteNotaria  result = new TramiteNotaria();
@@ -114,8 +119,8 @@ public class NotariaProduct {
     }
 
     @POST
-    @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
-    @Consumes(javax.ws.rs.core.MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     @Path("RegistrarTremite")
     public ClientTramiteNotaria setRegistrarTramite(ClientTramiteNotaria clienteNotaria){
         ClientTramiteNotaria result = new ClientTramiteNotaria();
